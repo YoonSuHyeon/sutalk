@@ -1,6 +1,5 @@
 import './App.css';
-import React, {useEffect, useState} from "react";
-import SignUp from "./SignUp";
+import React, {useState} from "react";
 
 function Login() {
     const [inputs, setInputs] = useState({
@@ -28,26 +27,12 @@ function Login() {
         }
         fetch("/members/login", requestOptions).then((response =>
             response.json())
-        ).then(data => onReset(data))
-
-        // TODO 위에 있는 onReset 왜 안타는 지 확인 .
-        // onReset('Success')
+        )
     }
 
 
     const onSignUp = () => {
         //회원가입 화면 이동
-    }
-
-    const onReset = (data) => {
-        const reset = {
-            id: "",
-            password: ""
-        }
-        if (data === 'Success') {
-            setInputs(reset)
-        }
-
     }
 
     return (
@@ -75,14 +60,4 @@ function Login() {
 
 }
 
-
-// const [message, setMessage] = useState([]);
-// useEffect(() =>
-//
-//     fetch("/hello").then((response) => {
-//         return response.json();
-//     }).then(function (data) {
-//         setMessage(data);
-//     });
-// }, []);
 export default Login;

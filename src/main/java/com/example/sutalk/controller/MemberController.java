@@ -6,16 +6,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/members")
 public class MemberController {
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginForm login) {
+    public Map<String, String> login(@RequestBody LoginForm login) {
         //TODO 테스트
         System.out.println(login.getId());
         System.out.println(login.getPassword());
-        return "Success";
+        Map<String, String> map = new HashMap<>();
+        map.put("status", "Success");
+        return map;
     }
 
 

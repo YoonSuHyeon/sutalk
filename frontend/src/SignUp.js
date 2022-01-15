@@ -1,5 +1,4 @@
-import Login from "./Login";
-import React, {useState} from "react";
+import React from "react";
 
 function SignUp() {
     return(
@@ -8,4 +7,4 @@ function SignUp() {
         </div>
     )
 }
-export default Login;
+export default SignUp;
