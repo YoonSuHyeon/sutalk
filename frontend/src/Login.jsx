@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from "react";
-import {Link , useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 function Login() {
     // let isLogin = false;
@@ -8,7 +8,7 @@ function Login() {
         id: '',
         password: ''
     })
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const {id, password} = inputs
 
     const onChange = (e) => {
@@ -56,7 +56,7 @@ function Login() {
                 onChange={onChange}
                 value={password}
             />
-                <button onClick={onLogin}>로그인</button>
+            <button onClick={onLogin}>로그인</button>
 
             <Link to="/signup">
                 <button>회원가입</button>
