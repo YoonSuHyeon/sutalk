@@ -18,8 +18,12 @@ public class MemberController {
         //TODO 테스트
         System.out.println(login.getId());
         System.out.println(login.getPassword());
+
         Map<String, String> map = new HashMap<>();
-        map.put("status", "Success");
+        String ss= login.same() ? "Success" : "Fail";
+        System.out.println(ss);
+        map.put("ss", ss);
+
         return map;
     }
 

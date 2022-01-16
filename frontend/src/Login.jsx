@@ -1,11 +1,14 @@
 import './App.css';
 import React, {useState} from "react";
+import {Link , useNavigate} from "react-router-dom";
 
 function Login() {
+    // let isLogin = false;
     const [inputs, setInputs] = useState({
         id: '',
-        password: '',
+        password: ''
     })
+    const navigate= useNavigate();
     const {id, password} = inputs
 
     const onChange = (e) => {
@@ -27,16 +30,20 @@ function Login() {
         }
         fetch("/members/login", requestOptions).then((response =>
             response.json())
-        )
-    }
-
-
-    const onSignUp = () => {
-        //회원가입 화면 이동
+        ).then(data => {
+            console.log(data)
+            if (data.ss === "Success") {
+                navigate("/home")
+            }
+        })
     }
 
     return (
         <div>
+            <header>
+                <h2> SuTalk</h2>
+            </header>
+
             <input
                 name="id"
                 placeholder="아이디"
@@ -49,12 +56,11 @@ function Login() {
                 onChange={onChange}
                 value={password}
             />
-            <button onClick={onLogin}>로그인</button>
-            <button onClick={onSignUp}>회원가입</button>
-            <div>
-                <b>값 : </b>
-                {id}:({password})
-            </div>
+                <button onClick={onLogin}>로그인</button>
+
+            <Link to="/signup">
+                <button>회원가입</button>
+            </Link>
         </div>
     )
 

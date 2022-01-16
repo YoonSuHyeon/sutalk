@@ -11,4 +11,8 @@ public class LoginForm {
     public String getPassword() {
         return password;
     }
+
+    public boolean same() {
+        return id.equals(password);
+    }
 }
