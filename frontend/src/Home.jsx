@@ -1,6 +1,7 @@
 import React from "react";
 import Friend from "./Friend";
 import Chat from "./Chat";
+import friend from "./Friend";
 
 function Home() {
     //Div Style
@@ -23,10 +24,18 @@ function Home() {
         borderRadius: '60px',
         backgroundColor: 'white'
     };
+    let clickId = 1;
 
+    const changeList = (e) => {
+        if (e.currentTarget.id === "friend")
+            clickId = 1;
+        else clickId = 2;
+    }
 
-    const onClick2 = (e) => {
-        console.log(e)
+    const changeStatus = () => {
+        if (clickId === 1)
+            return <Friend/>
+        else return <Chat/>
     }
     return (
         <div style={divStyle}>
@@ -35,12 +44,11 @@ function Home() {
                     <h2>SuTalk</h2>
                 </div>
                 <div>
-                    <button id="friend" onClick={onClick2}>친구</button>
-                    <button id="chat" onClick={onClick2}>채팅</button>
+                    <button id="friend" name={"friend"} onClick={changeList}>친구</button>
+                    <button id="chat" onClick={changeList}>채팅</button>
                 </div>
                 <div>
-                    <Friend/>
-                    <Chat/>
+                    {changeStatus}
                 </div>
 
             </div>

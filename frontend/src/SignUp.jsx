@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from "react";
-
+import {useNavigate} from "react-router-dom";
 function SignUp() {
 
     //Div Style
@@ -24,6 +24,8 @@ function SignUp() {
         backgroundColor: 'white'
     };
 
+    const navigate = useNavigate();
+
     return(
         <div style={divStyle}>
             <div style={divStyle2}>
@@ -45,7 +47,7 @@ function SignUp() {
 
                 <div>
                     <button>가입</button>
-                    <button>취소</button>
+                    <button onClick={()=>{ navigate(-1) }}>취소</button>
                 </div>
             </div>
 
