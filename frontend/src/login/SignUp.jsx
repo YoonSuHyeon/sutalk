@@ -1,9 +1,8 @@
-import React from "react";
-import Friend from "./Friend";
-import Chat from "./Chat";
-import friend from "./Friend";
+import '../App.css';
+import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
+function SignUp() {
 
-function Home() {
     //Div Style
     const divStyle = {
         textAlign: 'center',
@@ -24,36 +23,37 @@ function Home() {
         borderRadius: '60px',
         backgroundColor: 'white'
     };
-    let clickId = 1;
 
-    const changeList = (e) => {
-        if (e.currentTarget.id === "friend")
-            clickId = 1;
-        else clickId = 2;
-    }
+    const navigate = useNavigate();
 
-    const changeStatus = () => {
-        if (clickId === 1)
-            return <Friend/>
-        else return <Chat/>
-    }
-    return (
+    return(
         <div style={divStyle}>
             <div style={divStyle2}>
+
                 <div>
-                    <h2>SuTalk</h2>
-                </div>
-                <div>
-                    <button id="friend" name={"friend"} onClick={changeList}>친구</button>
-                    <button id="chat" onClick={changeList}>채팅</button>
-                </div>
-                <div>
-                    {changeStatus}
+                    <h2> 회원가입 화면 </h2>
                 </div>
 
+                <div>
+                    아이디<input placeholder="사용할 아이디 입력"/>
+                </div>
+                <div>
+                    비밀번호<input placeholder="비밀번호 입력"/>
+                </div>
+
+                <div>
+                    닉네임<input placeholder="닉네임"/>
+                </div>
+
+                <div>
+                    <button>가입</button>
+                    <button onClick={()=>{ navigate(-1) }}>취소</button>
+                </div>
             </div>
-        </div>
-    );
-}
 
-export default Home;
+
+
+        </div>
+    )
+}
+export default SignUp;

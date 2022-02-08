@@ -23,11 +23,39 @@ function ChatRoom() {
         backgroundColor: 'white'
     };
 
+
+    const inputContent =  {
+       bottom: '0'
+    }
+    //Input Style
+    const inputStyle = {
+        borderRadius: '20px',
+        padding: '15px',
+
+    };
+
+    const dummyArray = ['one', 'two', 'three', 'four', 'five'];
+
     return (
         <div style={divStyle}>
             <div style={divStyle2}>
                 채팅방
+                <div>
+                    <ul>
+                        {dummyArray.map((value, index) => {
+                            return <li itemType={''}  key={index}>{value}</li>
+                        })}
+                    </ul>
+                </div>
+                <div  >
+                    <input style={inputStyle}
+                           name="content"
+                           placeholder="내용"
+                    />
+                    <button>전송</button>
+                </div>
             </div>
+
         </div>
 
     )

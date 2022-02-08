@@ -1,9 +1,9 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
-import Login from "./Login";
-import SignUp from "./SignUp";
-import Home from "./Home";
-import ChatRoom from "./ChatRoom";
+import Login from "./login/Login";
+import SignUp from "./login/SignUp";
+import Home from "./home/Home";
+import ChatRoom from "./chat/ChatRoom";
 import Profile from "./Profile";
 
 

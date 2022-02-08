@@ -1,7 +1,10 @@
-import './App.css';
 import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
-function SignUp() {
+import friend from "../User";
+import HomeList from "./HomeList";
+
+function Home() {
+
+    const [clickId, setClickId] = useState(1);
 
     //Div Style
     const divStyle = {
@@ -24,36 +27,30 @@ function SignUp() {
         backgroundColor: 'white'
     };
 
-    const navigate = useNavigate();
 
-    return(
+    const changeList = (e) => {
+        if (e.currentTarget.id === "User")
+            setClickId(1);
+        else setClickId(2);
+    }
+
+    return (
         <div style={divStyle}>
             <div style={divStyle2}>
-
                 <div>
-                    <h2> 회원가입 화면 </h2>
+                    <h2>SuTalk</h2>
+                </div>
+                <div>
+                    <button id="User" name={"User"} onClick={changeList}>유저</button>
+                    <button id="chat" onClick={changeList}>채팅</button>
+                </div>
+                <div>
+                    <HomeList list={clickId}/>
                 </div>
 
-                <div>
-                    아이디<input placeholder="사용할 아이디 입력"/>
-                </div>
-                <div>
-                    비밀번호<input placeholder="비밀번호 입력"/>
-                </div>
-
-                <div>
-                    닉네임<input placeholder="닉네임"/>
-                </div>
-
-                <div>
-                    <button>가입</button>
-                    <button onClick={()=>{ navigate(-1) }}>취소</button>
-                </div>
             </div>
-
-
-
         </div>
-    )
+    );
 }
-export default SignUp;
+
+export default Home;

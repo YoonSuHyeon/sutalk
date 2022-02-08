@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 
-function Friend() {
+function User() {
 
     const navigate = useNavigate()
 
@@ -12,9 +12,9 @@ function Friend() {
 
         <div>
             <ul>
-                <li onClick={profile}>친구 1</li>
-                <li>친구 2</li>
-                <li>친구 3</li>
+                <li onClick={profile}>유저 1</li>
+                <li>유저 2</li>
+                <li>유저 3</li>
             </ul>
         </div>
 
@@ -22,4 +22,4 @@ function Friend() {
     );
 }
 
-export default Friend;
+export default User;
