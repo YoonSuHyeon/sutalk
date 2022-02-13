@@ -24,8 +24,8 @@ function ChatRoom() {
     };
 
 
-    const inputContent =  {
-       bottom: '0'
+    const inputDiv = {
+        //TODO 수정 해야함
     }
     //Input Style
     const inputStyle = {
@@ -33,26 +33,34 @@ function ChatRoom() {
         padding: '15px',
 
     };
+    const buttonStyle = {
+        borderRadius: '20px',
+        padding: '15px'
+    };
 
-    const dummyArray = ['one', 'two', 'three', 'four', 'five'];
+    const ulStyle = {
+        listStyleType: 'none',
+
+    };
+    const dummyArray = ['1: hi', '2: hello', '1: OK', '2: YES'];
 
     return (
         <div style={divStyle}>
             <div style={divStyle2}>
                 채팅방
                 <div>
-                    <ul>
+                    <ul style={ulStyle}>
                         {dummyArray.map((value, index) => {
-                            return <li itemType={''}  key={index}>{value}</li>
+                            return <li itemType={''} key={index}>{value}</li>
                         })}
                     </ul>
                 </div>
-                <div  >
+                <div style={inputDiv}>
                     <input style={inputStyle}
                            name="content"
                            placeholder="내용"
                     />
-                    <button>전송</button>
+                    <button style={buttonStyle}>전송</button>
                 </div>
             </div>
 

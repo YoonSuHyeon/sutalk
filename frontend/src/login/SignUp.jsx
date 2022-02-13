@@ -1,6 +1,7 @@
 import '../App.css';
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
+
 function SignUp() {
 
     //Div Style
@@ -24,36 +25,46 @@ function SignUp() {
         backgroundColor: 'white'
     };
 
+    //Input Style
+    const inputStyle = {
+
+        padding: '10px',
+        marginBottom: '10px'
+    };
+
     const navigate = useNavigate();
 
-    return(
+    return (
         <div style={divStyle}>
             <div style={divStyle2}>
 
                 <div>
-                    <h2> 회원가입 화면 </h2>
+                    <h2> 회원가입 </h2>
                 </div>
 
                 <div>
-                    아이디<input placeholder="사용할 아이디 입력"/>
+                    아이디<input style={inputStyle} placeholder="사용할 아이디 입력"/>
                 </div>
                 <div>
-                    비밀번호<input placeholder="비밀번호 입력"/>
+                    비밀번호<input style={inputStyle} placeholder="비밀번호 입력"/>
                 </div>
 
                 <div>
-                    닉네임<input placeholder="닉네임"/>
+                    닉네임<input style={inputStyle} placeholder="닉네임"/>
                 </div>
 
                 <div>
                     <button>가입</button>
-                    <button onClick={()=>{ navigate(-1) }}>취소</button>
+                    <button onClick={() => {
+                        navigate(-1)
+                    }}>취소
+                    </button>
                 </div>
             </div>
-
 
 
         </div>
     )
 }
+
 export default SignUp;
